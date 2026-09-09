@@ -1,0 +1,21 @@
+node_modules
+dist
+dist-ssr
+*.local
+.DS_Store
+.vite
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Design reference material — screen recordings and screenshots of third-party
+# sites, kept locally for comparison only. Not ours to redistribute.
+/*.mp4
+/Screenshot*.png
+/Social Media.png
+
+# CI deploy workflow, kept locally but out of the repo: the gh token in use has
+# no `workflow` scope, so GitHub rejects any push that touches it. Deploys run
+# via `npm run deploy` (gh-pages branch) instead. To switch to CI, run
+# `gh auth refresh -s workflow`, drop this line, and commit the file.
+.github/workflows/deploy.yml
