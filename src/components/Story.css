@@ -1,0 +1,105 @@
+.story {
+  position: relative;
+  overflow: hidden;
+}
+
+.story__grid {
+  display: grid;
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: center;
+}
+
+@media (min-width: 901px) {
+  .story__grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr);
+  }
+}
+
+.story__copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--sp-5);
+}
+
+.story__title {
+  font-size: var(--d-2);
+  margin: 0;
+}
+
+.story__body {
+  max-width: 46ch;
+  color: var(--ink-soft);
+}
+
+.story__facts {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  margin-top: var(--sp-2);
+  padding-top: var(--sp-5);
+  border-top: 3px solid var(--ink);
+  width: 100%;
+  max-width: 30rem;
+}
+
+.story__facts li {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.5rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.story__facts .doodle {
+  color: var(--tomato-ink);
+  flex: none;
+}
+
+/* --- Media --------------------------------------------------------------- */
+.story__media {
+  position: relative;
+  justify-self: center;
+  width: min(100%, 420px);
+}
+
+.story__frame {
+  overflow: hidden;
+  border: 3px solid var(--ink);
+  border-radius: 240px 240px 20px 20px;
+  box-shadow: 12px 12px 0 var(--blue);
+  transform: rotate(1.8deg);
+  background: var(--warm);
+}
+
+.story__img {
+  width: 100%;
+  height: auto;
+}
+
+/* An angled label, like something taped to the counter. */
+.story__tape {
+  position: absolute;
+  left: -12px;
+  bottom: 34px;
+  padding: 0.55rem 1rem;
+  background: var(--lemon);
+  color: var(--blue-deep);
+  border: 2.5px solid var(--ink);
+  box-shadow: var(--offset-sm);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.25rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 480px) {
+  .story__tape {
+    left: -6px;
+    font-size: 1.1rem;
+  }
+}

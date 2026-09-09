@@ -1,0 +1,173 @@
+.locs {
+  position: relative;
+  overflow: hidden;
+  background: var(--tomato-ink);
+  color: var(--warm);
+}
+
+.locs__key {
+  color: rgba(255, 249, 239, 0.34);
+  padding-top: 0.75rem;
+}
+
+.locs__title {
+  color: var(--warm);
+}
+
+/* Lemon does not clear AA at kicker size on this red — warm white does. */
+.locs .kicker {
+  color: var(--warm);
+}
+
+.locs .kicker::before {
+  background: var(--lemon);
+}
+
+/* Focus rings need to clear the red ground. */
+.locs :focus-visible {
+  outline-color: var(--lemon);
+}
+
+.locs__head {
+  margin-bottom: clamp(2rem, 5vw, 3.25rem);
+}
+
+.locs__title {
+  font-size: var(--d-1);
+  margin-top: var(--sp-4);
+}
+
+.locs__grid {
+  display: grid;
+  gap: clamp(1.5rem, 3.5vw, 2.5rem);
+}
+
+@media (min-width: 861px) {
+  .locs__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* --- A branch ------------------------------------------------------------ */
+.loc {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--warm);
+  color: var(--ink);
+  border: 3px solid var(--ink);
+  border-radius: var(--radius-lg);
+  box-shadow: 10px 10px 0 rgba(5, 27, 56, 0.55);
+  overflow: hidden;
+}
+
+.loc__figure {
+  position: relative;
+  border-bottom: 3px solid var(--ink);
+}
+
+.loc__img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.loc__pin {
+  position: absolute;
+  left: 14px;
+  bottom: -16px;
+  padding: 0.4rem 0.9rem;
+  background: var(--blue);
+  color: var(--warm);
+  border: 2.5px solid var(--ink);
+  border-radius: 8px;
+  box-shadow: var(--offset-sm);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.35rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.loc__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  flex: 1;
+  padding: calc(var(--sp-6) + 4px) clamp(1.15rem, 3vw, 1.9rem) clamp(1.4rem, 3vw, 1.9rem);
+}
+
+.loc .loc__name {
+  font-size: var(--d-3);
+  color: var(--ink);
+}
+
+.loc__address {
+  display: flex;
+  flex-direction: column;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.loc__hours,
+.loc__tel a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.loc__hours svg,
+.loc__tel svg {
+  color: var(--tomato-ink);
+  flex: none;
+}
+
+.loc__tel a {
+  min-height: 44px;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+}
+.loc__tel a:hover {
+  border-bottom-color: var(--ink);
+}
+
+.loc__note {
+  color: var(--ink-soft);
+  font-size: var(--step--1);
+  max-width: 38ch;
+}
+
+.loc__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+  margin-top: auto;
+  padding-top: var(--sp-3);
+}
+
+.loc__actions .btn {
+  flex: 1 1 auto;
+}
+
+.loc__ext {
+  font-size: var(--step--2);
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
+.loc__ext a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-weight: 700;
+  color: var(--tomato-ink);
+}
+
+@media (max-width: 400px) {
+  .loc__actions .btn {
+    width: 100%;
+  }
+}

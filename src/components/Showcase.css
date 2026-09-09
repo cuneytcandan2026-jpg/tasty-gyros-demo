@@ -1,0 +1,267 @@
+.showcase {
+  position: relative;
+  background:
+    radial-gradient(38% 32% at 92% 4%, rgba(255, 212, 59, 0.28), transparent 70%),
+    var(--warm);
+}
+
+.showcase__head {
+  max-width: 62ch;
+  margin-bottom: clamp(2rem, 5vw, 3.5rem);
+}
+
+.showcase__title {
+  font-size: var(--d-1);
+  margin: var(--sp-4) 0 var(--sp-5);
+}
+
+/* --- Track: three columns on desktop, a swipe rail on phones ------------- */
+.showcase__track {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.5rem, 3vw, 2.75rem);
+  align-items: start;
+}
+
+@media (max-width: 1100px) and (min-width: 761px) {
+  .showcase__track {
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 760px) {
+  .showcase__track {
+    grid-auto-flow: column;
+    grid-auto-columns: 82%;
+    grid-template-columns: none;
+    gap: 1rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 0;
+    /* The rail is a scroll container, so it clips vertically too — the top pad
+       (cancelled by the matching negative margin) is what keeps the stickers
+       from being sliced off where they overhang the card. */
+    padding-top: 26px;
+    margin-top: -26px;
+    padding-bottom: 0.5rem;
+    /* let the stickers breathe past the slide edge */
+    margin-inline: calc(-1 * clamp(1.15rem, 4.5vw, 3rem));
+    padding-inline: clamp(1.15rem, 4.5vw, 3rem);
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .showcase__track::-webkit-scrollbar {
+    display: none;
+  }
+  .dish {
+    scroll-snap-align: start;
+  }
+}
+
+/* --- A dish --------------------------------------------------------------
+   Each column is separated by a hairline rule rather than by space alone;
+   the rule is drawn on the column so it never appears before the first one.  */
+.dish {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.45rem;
+  text-align: center;
+  position: relative;
+}
+
+@media (min-width: 761px) {
+  .dish + .dish::before {
+    content: '';
+    position: absolute;
+    top: 0.5rem;
+    bottom: 0.5rem;
+    left: calc(-0.5 * clamp(1.5rem, 3vw, 2.75rem));
+    border-left: 1px solid var(--line);
+  }
+}
+
+/* The shot now carries a genuinely white backdrop, so it sits on a white plate
+   of its own — a soft card, not the heavy ink-bordered panels used elsewhere,
+   because the food has to be the only loud thing in this row. */
+.dish__figure {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  margin-bottom: 0.6rem;
+  padding: clamp(0.75rem, 2vw, 1.4rem);
+  background: #fff;
+  border: 1px solid rgba(10, 26, 47, 0.16);
+  border-radius: clamp(14px, 2vw, 20px);
+}
+
+.dish__img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.4s var(--ease-spring);
+}
+
+@media (hover: hover) {
+  .dish:hover .dish__img {
+    transform: translateY(-10px) rotate(-2deg) scale(1.03);
+  }
+}
+
+/* Overhangs the plate's top-left corner, the way a sticker would be slapped on. */
+.dish .dish__burst {
+  position: absolute;
+  left: clamp(-22px, -2vw, -14px);
+  top: clamp(-20px, -2vw, -12px);
+  --burst-size: clamp(88px, 12vw, 112px);
+}
+
+.dish__name {
+  font-size: var(--d-3);
+  line-height: 0.9;
+}
+
+.dish__shout {
+  /* Two lines reserved, so the blurb below starts level in every column. */
+  min-height: 2.7em;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: var(--step--1);
+  line-height: 1.35;
+  color: var(--tomato-ink);
+  max-width: 28ch;
+}
+
+.dish__blurb {
+  max-width: 34ch;
+  color: var(--ink-soft);
+  font-size: var(--step-0);
+}
+
+.dish__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem 0.75rem;
+  margin-top: 0.35rem;
+  font-size: var(--step--1);
+}
+
+.dish__kcal {
+  color: var(--ink-soft);
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.28rem 0.6rem;
+  border: 2px solid var(--ink);
+  border-radius: var(--pill);
+  background: var(--lemon);
+  color: var(--blue-deep);
+  font-weight: 700;
+  font-size: var(--step--2);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.tag--vegan {
+  background: #8fd14f;
+}
+
+/* --- Carousel controls --------------------------------------------------- */
+.showcase__controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-4);
+  margin-top: var(--sp-5);
+}
+
+.showcase__nav {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  padding: 0;
+  background: var(--warm);
+  border: 2.5px solid var(--ink);
+  border-radius: 50%;
+  box-shadow: 3px 3px 0 var(--ink);
+  color: var(--ink);
+}
+
+.showcase__nav:disabled {
+  opacity: 0.32;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+.showcase__dots {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.showcase__dot {
+  display: block;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background: none;
+  border: 0;
+  position: relative;
+}
+
+.showcase__dot::after {
+  content: '';
+  position: absolute;
+  inset: 50% auto auto 50%;
+  transform: translate(-50%, -50%);
+  width: 11px;
+  height: 11px;
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+  background: transparent;
+  transition: background-color 0.2s var(--ease);
+}
+
+.showcase__dot.is-active::after {
+  background: var(--tomato-ink);
+}
+
+/* --- Foot ---------------------------------------------------------------- */
+.showcase__foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-5);
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+  padding-top: var(--sp-6);
+  border-top: 3px solid var(--ink);
+}
+
+.showcase__ranges {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+  color: var(--ink-soft);
+  font-size: var(--step--1);
+  max-width: 52ch;
+}
+
+.showcase__ranges .doodle {
+  color: var(--tomato-ink);
+  flex: none;
+}
+
+.showcase__ranges-label {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.3rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--ink);
+}

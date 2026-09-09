@@ -1,0 +1,109 @@
+/* --- Starburst sticker --------------------------------------------------- */
+.burst {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: var(--burst-size, 116px);
+  height: var(--burst-size, 116px);
+  flex: none;
+  color: var(--blue-deep);
+  text-align: center;
+}
+
+.burst__shape {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  fill: var(--lemon);
+  filter: drop-shadow(3px 3px 0 rgba(10, 26, 47, 0.9));
+}
+
+.burst--tomato .burst__shape {
+  fill: var(--tomato);
+}
+.burst--tomato {
+  color: #fff;
+}
+
+.burst--warm .burst__shape {
+  fill: var(--warm);
+}
+
+.burst--blue .burst__shape {
+  fill: var(--blue);
+}
+.burst--blue {
+  color: var(--warm);
+}
+
+.burst__label {
+  position: relative;
+  z-index: 1;
+  max-width: 74%;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: calc(var(--burst-size, 116px) * 0.155);
+  line-height: 0.94;
+  letter-spacing: 0.015em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+/* --- Greek key rule ------------------------------------------------------ */
+.meander {
+  width: 100%;
+  height: var(--meander-h, 24px);
+  background: currentColor;
+  -webkit-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='36' height='24' viewBox='0 0 36 24'><g fill='none' stroke='%23000' stroke-width='4' stroke-linecap='square'><path d='M0 2h36'/><path d='M30 2v18H10v-10h12'/></g></svg>") repeat-x left center / auto 100%;
+  mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='36' height='24' viewBox='0 0 36 24'><g fill='none' stroke='%23000' stroke-width='4' stroke-linecap='square'><path d='M0 2h36'/><path d='M30 2v18H10v-10h12'/></g></svg>") repeat-x left center / auto 100%;
+}
+
+/* --- Doodles ------------------------------------------------------------- */
+.doodle {
+  pointer-events: none;
+}
+
+.doodle--arrow {
+  width: var(--arrow-w, 104px);
+  height: auto;
+}
+
+/* --- Starburst card ------------------------------------------------------
+   A blown-up spiked shape used as a container. The polygon is stretched with
+   preserveAspectRatio="none" so the card can be wider than it is tall, and the
+   stroke is kept at its drawn width so the spikes never thicken with it.      */
+.burstcard {
+  position: relative;
+  display: grid;
+  place-items: center;
+  color: var(--tomato-ink);
+}
+
+.burstcard__shape {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  fill: #fff;
+  stroke: var(--ink);
+  stroke-width: 1.6;
+  stroke-linejoin: round;
+}
+
+.burstcard--blue {
+  color: var(--blue);
+}
+.burstcard--gold {
+  /* Darkened off the brand gold: the quote runs at body size on white, so it
+     has to clear 4.5:1 — this is 4.9:1, --lemon-deep is only 1.9:1. */
+  color: #96690a;
+}
+
+.burstcard__body {
+  position: relative;
+  z-index: 1;
+  /* Inset off the spikes so nothing inside can collide with the edge. */
+  width: 76%;
+  text-align: center;
+}

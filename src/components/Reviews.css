@@ -1,0 +1,141 @@
+.rev {
+  overflow: hidden;
+}
+
+/* --- Head ---------------------------------------------------------------- */
+.rev__head {
+  text-align: center;
+  margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.rev__title {
+  font-size: var(--d-2);
+  color: var(--tomato-ink);
+}
+
+.rev__sub {
+  margin-top: var(--sp-3);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--d-4);
+  line-height: 1;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+/* --- Rail ----------------------------------------------------------------
+   Full-bleed, so the stickers run off both edges rather than stopping at the
+   container. The rail itself scrolls; the track inside it is what animates.   */
+.rev__rail {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  /* Room for the spikes and the hover lift, top and bottom. */
+  padding-block: 0.75rem 1.25rem;
+}
+.rev__rail::-webkit-scrollbar {
+  display: none;
+}
+
+.rev__track {
+  display: flex;
+  width: max-content;
+  animation: rev-run 64s linear infinite;
+}
+
+/* Half the track is the duplicate, so -50% lands exactly on the seam. */
+@keyframes rev-run {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.rev__rail:hover .rev__track,
+.rev__rail:focus-within .rev__track {
+  animation-play-state: paused;
+}
+
+.rev__row {
+  display: flex;
+  align-items: center;
+  flex: none;
+}
+
+.rev__item {
+  flex: none;
+  /* The spikes already read as an edge, so the gap only has to keep two of
+     them from interlocking. */
+  margin-inline: clamp(0.5rem, 1.2vw, 1rem);
+}
+
+/* --- A sticker ------------------------------------------------------------ */
+.rev__card {
+  width: clamp(230px, 25vw, 290px);
+  aspect-ratio: 1;
+  transition: transform 0.28s var(--ease-spring);
+}
+
+@media (hover: hover) {
+  .rev__item:hover .rev__card {
+    transform: translateY(-6px) rotate(-1.5deg);
+  }
+}
+
+.rev__card .burstcard__body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  /* The spikes eat into the corners, so the copy column stays narrow. */
+  width: 70%;
+}
+
+.rev__mark {
+  color: currentColor;
+  opacity: 0.85;
+}
+
+.rev__stars {
+  display: inline-flex;
+  gap: 0.14rem;
+  color: currentColor;
+}
+
+.rev__quote {
+  font-size: var(--step--1);
+  line-height: 1.4;
+  color: currentColor;
+  text-wrap: balance;
+}
+
+.rev__by {
+  font-size: var(--step--2);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+/* --- Note ---------------------------------------------------------------- */
+.rev__note {
+  max-width: 62ch;
+  margin: var(--sp-5) auto 0;
+  text-align: center;
+  font-size: var(--step--1);
+  color: var(--ink-soft);
+}
+
+@media (max-width: 560px) {
+  .rev__card {
+    width: 250px;
+  }
+}
+
+/* The rail is a scroll container in its own right, so switching the animation
+   off leaves something that still works rather than something frozen. */
+@media (prefers-reduced-motion: reduce) {
+  .rev__track {
+    animation: none;
+  }
+}

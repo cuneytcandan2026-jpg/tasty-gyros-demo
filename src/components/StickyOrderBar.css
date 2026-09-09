@@ -1,0 +1,24 @@
+.sbar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 80;
+  padding: 0.6rem clamp(1rem, 4vw, 1.5rem);
+  padding-bottom: max(0.6rem, env(safe-area-inset-bottom));
+  background: var(--warm);
+  border-top: 3px solid var(--ink);
+  transform: translateY(110%);
+  transition: transform 0.28s var(--ease);
+}
+
+.sbar.is-shown {
+  transform: none;
+}
+
+/* Desktop has a persistent Order now in the header, so the bar is redundant. */
+@media (min-width: 901px) {
+  .sbar {
+    display: none;
+  }
+}

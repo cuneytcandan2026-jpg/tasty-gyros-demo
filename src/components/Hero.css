@@ -1,0 +1,273 @@
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding-block: clamp(2rem, 5vw, 4.5rem) 0;
+}
+
+/* Atmosphere on the blue: two soft light pools rather than a flat fill. */
+.hero__wash {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(60% 55% at 78% 30%, rgba(255, 212, 59, 0.22), transparent 70%),
+    radial-gradient(50% 60% at 8% 88%, rgba(5, 27, 56, 0.55), transparent 72%);
+}
+
+.hero__grid {
+  display: grid;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: center;
+  padding-bottom: clamp(2.5rem, 6vw, 4.5rem);
+}
+
+@media (min-width: 901px) {
+  .hero__grid {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  }
+}
+
+/* --- Copy ---------------------------------------------------------------- */
+.hero__copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--sp-5);
+}
+
+.hero__kicker {
+  margin: 0;
+}
+
+.hero__title {
+  font-size: var(--d-hero);
+  line-height: 0.8;
+  letter-spacing: 0.01em;
+  margin: 0;
+}
+
+.hero__line {
+  display: block;
+}
+
+.hero__line--accent {
+  color: var(--lemon);
+}
+
+.hero__lede {
+  max-width: 34ch;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sp-4);
+}
+
+.hero__cta-wrap {
+  position: relative;
+  display: inline-flex;
+}
+
+.hero__arrow {
+  position: absolute;
+  left: -62px;
+  top: 4px;
+  --arrow-w: 58px;
+  color: var(--lemon);
+  transform: rotate(14deg) scaleX(-1);
+}
+
+.hero__facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3) var(--sp-6);
+  font-weight: 600;
+  font-size: var(--step--1);
+  color: var(--on-blue-soft);
+}
+
+.hero__facts li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.hero__facts .doodle {
+  color: var(--lemon);
+  flex: none;
+}
+
+/* --- Media --------------------------------------------------------------- */
+.hero__media {
+  position: relative;
+  justify-self: center;
+  width: min(100%, 460px);
+}
+
+/* A Greek arch: the dish sits inside it, and because every product shot is on
+   a white studio sweep the arch's warm interior reads as one clean shape. */
+.hero__arch {
+  position: relative;
+  overflow: hidden;
+  background: var(--warm);
+  border: 3px solid var(--ink);
+  border-radius: 50% 50% 18px 18px / 38% 38% 6% 6%;
+  box-shadow: 10px 12px 0 var(--blue-ink);
+  transform: rotate(-2.2deg);
+}
+
+.hero__img {
+  width: 100%;
+  height: auto;
+  mix-blend-mode: multiply;
+}
+
+.hero .hero__burst {
+  position: absolute;
+  left: -14px;
+  top: 6%;
+  --burst-size: clamp(88px, 20vw, 124px);
+}
+
+.hero__chip {
+  position: absolute;
+  right: -6px;
+  bottom: 6%;
+  padding: 0.5rem 0.95rem;
+  background: var(--warm);
+  color: var(--blue-deep);
+  border: 2.5px solid var(--ink);
+  border-radius: 8px;
+  box-shadow: var(--offset-sm);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.15rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* --- Greek key foot ------------------------------------------------------ */
+.hero__key {
+  color: rgba(255, 249, 239, 0.42);
+}
+
+/* --- Mobile ordering: headline, then food, then the primary action -------- */
+@media (max-width: 900px) {
+  .hero__grid {
+    grid-template-columns: 1fr;
+  }
+  .hero__copy {
+    display: contents;
+  }
+  .hero__kicker {
+    order: 1;
+  }
+  .hero__title {
+    order: 2;
+  }
+  .hero__media {
+    order: 3;
+    width: min(100%, 340px);
+    margin-block: 0.25rem;
+  }
+  .hero__actions {
+    order: 4;
+    width: 100%;
+  }
+  .hero__lede {
+    order: 5;
+  }
+  .hero__facts {
+    order: 6;
+  }
+  .hero__actions .btn {
+    /* equal halves so neither action dominates the other */
+    flex: 1 1 0;
+  }
+  .hero__arrow {
+    display: none;
+  }
+}
+
+@media (max-width: 420px) {
+  .hero__chip {
+    font-size: 1rem;
+    right: -2px;
+  }
+}
+
+/* --- Entrance ------------------------------------------------------------
+   Pure CSS, so the opening still plays if the JS bundle never arrives — and
+   the layout is already complete before the first frame.                   */
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes hero-arch-in {
+  from {
+    opacity: 0;
+    transform: rotate(-2.2deg) translateY(34px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(-2.2deg);
+  }
+}
+
+@keyframes hero-sticker-in {
+  from {
+    opacity: 0;
+    transform: scale(0.5) rotate(-24deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero__kicker,
+  .hero__line,
+  .hero__lede,
+  .hero__actions,
+  .hero__facts {
+    animation: hero-rise 0.62s var(--ease) backwards;
+  }
+  .hero__kicker {
+    animation-delay: 0.04s;
+  }
+  .hero__line:nth-child(1) {
+    animation-delay: 0.12s;
+  }
+  .hero__line:nth-child(2) {
+    animation-delay: 0.19s;
+  }
+  .hero__line:nth-child(3) {
+    animation-delay: 0.26s;
+  }
+  .hero__lede {
+    animation-delay: 0.38s;
+  }
+  .hero__actions {
+    animation-delay: 0.46s;
+  }
+  .hero__facts {
+    animation-delay: 0.54s;
+  }
+  .hero__arch {
+    animation: hero-arch-in 0.75s var(--ease) 0.16s backwards;
+  }
+  .hero__burst {
+    animation: hero-sticker-in 0.5s var(--ease-spring) 0.68s backwards;
+  }
+  .hero__chip {
+    animation: hero-sticker-in 0.5s var(--ease-spring) 0.78s backwards;
+  }
+}

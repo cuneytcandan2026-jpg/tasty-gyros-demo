@@ -1,0 +1,329 @@
+/* ==========================================================================
+   Header — nav left, the mark hung dead centre, branch and ordering right.
+   ========================================================================== */
+.hdr {
+  position: sticky;
+  top: 0;
+  z-index: 90;
+  background: var(--warm);
+  border-bottom: 1px solid var(--line-strong);
+}
+
+/* Sticky treatment stays subtle: the bar gains a shadow rather than changing
+   colour or growing over the content. */
+.hdr.is-stuck {
+  box-shadow: 0 10px 26px -18px rgba(10, 26, 47, 0.65);
+}
+
+.hdr__bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--sp-5);
+  min-height: var(--header-h);
+}
+
+/* --- Nav ----------------------------------------------------------------- */
+.hdr__nav {
+  margin-right: auto;
+}
+
+.hdr__nav ul {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.75rem, 2vw, 1.9rem);
+}
+
+.hdr__nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding-inline: 0.2rem;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.16rem;
+  letter-spacing: 0.045em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--ink);
+  position: relative;
+}
+
+.hdr__nav a::after {
+  content: '';
+  position: absolute;
+  left: 0.2rem;
+  right: 0.2rem;
+  bottom: 10px;
+  height: 2px;
+  background: var(--tomato-ink);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.22s var(--ease);
+}
+
+.hdr__nav a:hover::after {
+  transform: scaleX(1);
+}
+
+/* --- Hanging brand -------------------------------------------------------
+   Taken out of the flow entirely so it is centred on the page rather than on
+   whatever the nav and the actions happen to leave between them. It overhangs
+   the bar, so nothing here may clip it.                                      */
+.hdr__brand {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  text-decoration: none;
+}
+
+/* --- Right-hand actions --------------------------------------------------- */
+.hdr__actions {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.6rem, 1.6vw, 1.1rem);
+  margin-left: auto;
+}
+
+.hdr__order {
+  box-shadow: none;
+  border-width: 2px;
+  padding-inline: 1.35rem;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.14rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.hdr__order:hover {
+  transform: translateY(-1px);
+  box-shadow: none;
+  background: var(--tomato);
+  color: var(--ink);
+}
+
+.hdr__order:active {
+  transform: translateY(1px);
+  box-shadow: none;
+}
+
+/* --- Branch picker -------------------------------------------------------- */
+.bpick {
+  position: relative;
+}
+
+.bpick__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 44px;
+  padding: 0.35rem 0.4rem;
+  background: transparent;
+  border: 0;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.12rem;
+  letter-spacing: 0.045em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.bpick__btn svg {
+  flex: none;
+}
+
+.bpick__caret {
+  transition: transform 0.2s var(--ease);
+}
+
+.bpick__btn[aria-expanded='true'] .bpick__caret {
+  transform: rotate(180deg);
+}
+
+.bpick__list {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 3;
+  width: max-content;
+  min-width: 15rem;
+  padding: 0.35rem;
+  background: var(--warm);
+  border: 2.5px solid var(--ink);
+  border-radius: 12px;
+  box-shadow: var(--offset-sm);
+}
+
+.bpick__opt {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  width: 100%;
+  padding: 0.55rem 0.65rem;
+  background: transparent;
+  border: 0;
+  border-radius: 8px;
+  text-align: left;
+  color: var(--ink);
+}
+
+.bpick__opt:hover {
+  background: var(--cream);
+}
+
+.bpick__opt.is-current {
+  background: var(--lemon);
+}
+
+.bpick__place {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.3rem;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.bpick__meta {
+  font-size: var(--step--2);
+  color: var(--ink-soft);
+}
+
+/* --- Burger ---------------------------------------------------------------- */
+.hdr__burger {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  padding: 0;
+  margin-left: auto;
+  background: transparent;
+  border: 2.5px solid var(--ink);
+  border-radius: 10px;
+  color: var(--ink);
+}
+
+/* Below this the nav and the branch picker move into the panel, but the mark
+   stays hung in the middle — it is the one fixed point in the bar. */
+@media (max-width: 980px) {
+  .hdr__nav,
+  .hdr__actions {
+    display: none;
+  }
+  .hdr__burger {
+    display: inline-flex;
+  }
+}
+
+.mnav__branch {
+  align-self: flex-start;
+}
+
+.mnav__branch .bpick__btn {
+  color: var(--warm);
+  font-size: 1.3rem;
+}
+
+.mnav__branch .bpick__list {
+  right: auto;
+  left: 0;
+  bottom: calc(100% + 8px);
+  top: auto;
+}
+
+/* --- Mobile menu --------------------------------------------------------- */
+.mnav {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.mnav.is-open {
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.mnav__scrim {
+  position: absolute;
+  inset: 0;
+  background: rgba(5, 27, 56, 0.6);
+  opacity: 0;
+  transition: opacity 0.28s var(--ease);
+}
+.mnav.is-open .mnav__scrim {
+  opacity: 1;
+}
+
+.mnav__panel {
+  position: absolute;
+  inset-block: 0;
+  right: 0;
+  width: min(400px, 88vw);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-5);
+  padding: var(--sp-5) var(--sp-5) max(var(--sp-6), env(safe-area-inset-bottom));
+  border-left: 3px solid var(--ink);
+  transform: translateX(100%);
+  transition: transform 0.32s var(--ease);
+  overflow-y: auto;
+}
+.mnav.is-open .mnav__panel {
+  transform: none;
+}
+
+.mnav__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mnav__close {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  background: transparent;
+  border: 2.5px solid var(--warm);
+  border-radius: 10px;
+  color: var(--warm);
+}
+
+.mnav__links {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.mnav__links a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  min-height: 60px;
+  padding-block: 0.4rem;
+  border-bottom: 2px solid rgba(255, 249, 239, 0.22);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2rem, 8vw, 2.6rem);
+  line-height: 1;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--warm);
+}
+
+.mnav__links a:hover {
+  color: var(--lemon);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mnav__panel,
+  .mnav__scrim {
+    transition: none;
+  }
+}

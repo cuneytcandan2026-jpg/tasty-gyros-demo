@@ -1,0 +1,4 @@
+# Concept design demo by Laara Digital — must not be indexed, so it can never
+# compete with the real Tasty Gyros site in search results.
+User-agent: *
+Disallow: /

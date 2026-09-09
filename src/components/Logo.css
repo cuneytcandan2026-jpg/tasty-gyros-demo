@@ -1,0 +1,141 @@
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.logo--warm {
+  color: var(--warm);
+}
+
+.logo__chip {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  flex: none;
+  background: var(--blue-deep);
+  border: 2.5px solid var(--ink);
+  border-radius: 10px;
+  box-shadow: 3px 3px 0 var(--ink);
+  transition: transform 0.18s var(--ease-spring);
+}
+
+.logo--warm .logo__chip {
+  border-color: var(--warm);
+  box-shadow: 3px 3px 0 rgba(255, 249, 239, 0.55);
+}
+
+.logo__chip img {
+  width: 22px;
+  height: auto;
+}
+
+a:hover .logo__chip {
+  transform: rotate(-6deg) scale(1.05);
+}
+
+.logo__word {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.logo__name {
+  white-space: nowrap;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.72rem;
+  line-height: 0.84;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+
+.logo__sub {
+  margin-top: 3px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.56rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  opacity: 0.72;
+}
+
+@media (max-width: 480px) {
+  .logo__sub {
+    display: none;
+  }
+  .logo__chip {
+    width: 36px;
+    height: 36px;
+  }
+  .logo__name {
+    font-size: 1.5rem;
+  }
+}
+
+/* --- Header emblem -------------------------------------------------------
+   A pendant that hangs off the bottom of the header bar. Everything about the
+   size is driven by --emblem-w so the header can size it in one place.       */
+.logo--emblem {
+  display: block;
+}
+
+.logo__pendant {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.18rem;
+  width: var(--emblem-w, 78px);
+  padding: 0.5rem 0.35rem 0.6rem;
+  background: var(--blue-deep);
+  border: 3px solid var(--ink);
+  border-top: 0;
+  border-radius: 0 0 14px 14px;
+  color: var(--warm);
+  /* Pivot at the top edge so the tilt reads as the badge swinging on its
+     mounting, not as the whole thing sliding sideways. */
+  transform-origin: 50% 0;
+  transition: transform 0.32s var(--ease-spring);
+}
+
+.logo__pendant img {
+  width: 24px;
+  height: auto;
+}
+
+.logo__stack {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 0.92rem;
+  line-height: 0.86;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--lemon);
+}
+
+/* The reference's hat-tip: the badge cocks to one side and drops a touch, then
+   settles back. Pointer devices only — it has no touch equivalent. */
+@media (hover: hover) {
+  a:hover .logo__pendant,
+  a:focus-visible .logo__pendant {
+    transform: rotate(-9deg) translateY(3px) scale(1.06);
+  }
+}
+
+@media (max-width: 600px) {
+  .logo__pendant {
+    --emblem-w: 66px;
+    padding-bottom: 0.45rem;
+  }
+  .logo__pendant img {
+    width: 19px;
+  }
+  .logo__stack {
+    font-size: 0.78rem;
+  }
+}

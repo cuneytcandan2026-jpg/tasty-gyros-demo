@@ -1,0 +1,147 @@
+{
+  "hero-gyros": {
+    "widths": [
+      520,
+      660
+    ],
+    "aspect": "660 / 825",
+    "w": 660,
+    "h": 825
+  },
+  "show-chicken-gyros": {
+    "widths": [
+      400,
+      760
+    ],
+    "aspect": "760 / 760",
+    "w": 760,
+    "h": 760
+  },
+  "show-halloumi": {
+    "widths": [
+      400,
+      800
+    ],
+    "aspect": "800 / 800",
+    "w": 800,
+    "h": 800
+  },
+  "show-vegan-gyros": {
+    "widths": [
+      400,
+      800
+    ],
+    "aspect": "800 / 800",
+    "w": 800,
+    "h": 800
+  },
+  "show-gyros-bowl": {
+    "widths": [
+      400,
+      630
+    ],
+    "aspect": "630 / 630",
+    "w": 630,
+    "h": 630
+  },
+  "feature-gyros-box": {
+    "widths": [
+      640,
+      1010
+    ],
+    "aspect": "1010 / 632",
+    "w": 1010,
+    "h": 632
+  },
+  "story-team": {
+    "widths": [
+      520,
+      900,
+      1200
+    ],
+    "aspect": "1200 / 1488",
+    "w": 1200,
+    "h": 1488
+  },
+  "gal-mixed-wrap": {
+    "widths": [
+      400,
+      800
+    ],
+    "aspect": "800 / 800",
+    "w": 800,
+    "h": 800
+  },
+  "gal-greek-salad": {
+    "widths": [
+      400,
+      800
+    ],
+    "aspect": "800 / 800",
+    "w": 800,
+    "h": 800
+  },
+  "gal-lamb-wrap": {
+    "widths": [
+      400,
+      800
+    ],
+    "aspect": "800 / 800",
+    "w": 800,
+    "h": 800
+  },
+  "gal-feta-salad": {
+    "widths": [
+      400,
+      800
+    ],
+    "aspect": "800 / 800",
+    "w": 800,
+    "h": 800
+  },
+  "gal-gyros-box": {
+    "widths": [
+      400,
+      800
+    ],
+    "aspect": "800 / 800",
+    "w": 800,
+    "h": 800
+  },
+  "gal-souvlaki-wrap": {
+    "widths": [
+      400,
+      800
+    ],
+    "aspect": "800 / 800",
+    "w": 800,
+    "h": 800
+  },
+  "gal-team": {
+    "widths": [
+      400,
+      800
+    ],
+    "aspect": "800 / 1000",
+    "w": 800,
+    "h": 1000
+  },
+  "loc-enfield": {
+    "widths": [
+      400,
+      800
+    ],
+    "aspect": "800 / 600",
+    "w": 800,
+    "h": 600
+  },
+  "loc-notting-hill": {
+    "widths": [
+      400,
+      800
+    ],
+    "aspect": "800 / 600",
+    "w": 800,
+    "h": 600
+  }
+}

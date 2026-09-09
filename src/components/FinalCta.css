@@ -1,0 +1,54 @@
+.final {
+  position: relative;
+  overflow: hidden;
+  border-top: 3px solid var(--ink);
+}
+
+.final__inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-5);
+  text-align: center;
+}
+
+.final__title {
+  font-size: var(--d-1);
+  color: var(--blue-deep);
+}
+
+.final__lede {
+  max-width: 34ch;
+  font-size: var(--step-1);
+  font-weight: 600;
+  color: var(--blue-deep);
+}
+
+.final__btn {
+  margin-top: var(--sp-2);
+}
+
+.final__doodle {
+  position: absolute;
+  color: var(--tomato-ink);
+  opacity: 0.9;
+}
+
+.final__doodle--a {
+  left: 5%;
+  top: 12%;
+  transform: rotate(-14deg);
+}
+
+.final__doodle--b {
+  right: 6%;
+  bottom: 14%;
+  transform: rotate(12deg);
+}
+
+@media (max-width: 700px) {
+  .final__doodle {
+    display: none;
+  }
+}

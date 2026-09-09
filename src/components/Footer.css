@@ -1,0 +1,123 @@
+.ftr {
+  background: var(--blue-ink);
+  color: var(--warm);
+  padding-block: clamp(2.5rem, 5vw, 4rem) 0;
+  border-top: 3px solid var(--ink);
+}
+
+.ftr :focus-visible {
+  outline-color: var(--lemon);
+}
+
+.ftr__inner {
+  display: grid;
+  gap: clamp(1.75rem, 4vw, 3rem);
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.ftr__brand {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+
+.ftr__socials {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.ftr__socials a {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border: 2.5px solid rgba(255, 249, 239, 0.45);
+  border-radius: 50%;
+  color: var(--warm);
+  transition: background-color 0.18s var(--ease), border-color 0.18s var(--ease),
+    transform 0.18s var(--ease);
+}
+
+.ftr__socials a:hover {
+  background: var(--lemon);
+  border-color: var(--lemon);
+  color: var(--blue-deep);
+  transform: translateY(-3px);
+}
+
+.ftr__col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  font-size: var(--step--1);
+}
+
+.ftr__h {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.4rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--lemon);
+  margin-bottom: 0.2rem;
+}
+
+.ftr__col address {
+  font-style: normal;
+  line-height: 1.8;
+  color: var(--on-blue-soft);
+}
+
+.ftr__col a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  min-height: 44px;
+  color: var(--warm);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+.ftr__col a:hover {
+  border-bottom-color: var(--lemon);
+  color: var(--lemon);
+}
+
+.ftr__col ul a {
+  min-width: 44px;
+}
+
+.ftr__col ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.ftr__hours {
+  color: var(--on-blue-soft);
+}
+
+/* --- Base ---------------------------------------------------------------- */
+.ftr__base {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3) var(--sp-6);
+  justify-content: space-between;
+  margin-top: clamp(2rem, 4vw, 3rem);
+  padding-block: var(--sp-5);
+  padding-bottom: max(var(--sp-5), env(safe-area-inset-bottom));
+  border-top: 1px solid rgba(255, 249, 239, 0.2);
+  font-size: var(--step--2);
+  color: var(--on-blue-soft);
+}
+
+.ftr__base strong {
+  color: var(--warm);
+}
+
+/* Clear the mobile ordering bar so nothing is hidden behind it. */
+@media (max-width: 900px) {
+  .ftr__base {
+    padding-bottom: calc(76px + env(safe-area-inset-bottom));
+  }
+}

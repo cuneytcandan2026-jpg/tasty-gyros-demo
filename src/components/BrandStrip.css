@@ -1,0 +1,95 @@
+.strip {
+  position: relative;
+  overflow: hidden;
+  background: var(--lemon);
+  color: var(--blue-deep);
+  border-block: 3px solid var(--ink);
+  padding-block: 0.55rem;
+}
+
+.strip__track {
+  display: flex;
+  width: max-content;
+  animation: strip-scroll 34s linear infinite;
+}
+
+.strip:hover .strip__track,
+.strip:focus-within .strip__track,
+.strip.is-paused .strip__track {
+  animation-play-state: paused;
+}
+
+.strip__run {
+  display: flex;
+  flex: none;
+}
+
+.strip__word {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 3vw, 2rem);
+  padding-inline: clamp(0.5rem, 1.6vw, 1rem);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.strip__dot {
+  font-size: 0.7em;
+  color: var(--tomato-ink);
+}
+
+@keyframes strip-scroll {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    /* one full pass — the other two are duplicates, so the loop is seamless */
+    transform: translate3d(-33.3333%, 0, 0);
+  }
+}
+
+/* --- Pause control ------------------------------------------------------- */
+.strip__toggle {
+  position: absolute;
+  right: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background: var(--warm);
+  color: var(--blue-deep);
+  border: 2.5px solid var(--ink);
+  border-radius: 50%;
+  box-shadow: 2px 2px 0 var(--ink);
+}
+
+.strip__toggle:hover {
+  background: #fff;
+}
+
+/* --- Reduced motion: a static strip, not a stopped one ------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .strip__track {
+    animation: none;
+    width: 100%;
+    justify-content: center;
+  }
+  .strip__run[aria-hidden='true'] {
+    display: none;
+  }
+  .strip__word:last-child .strip__dot {
+    display: none;
+  }
+  .strip__run {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
