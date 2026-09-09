@@ -52,7 +52,7 @@ export default function BranchPicker({ className = '' }) {
         <Icon name="pin" size={17} strokeWidth={2} />
         <span className="bpick__current">{branch.shortName}</span>
         <Icon name="chevronDown" size={15} strokeWidth={2.4} className="bpick__caret" />
-        <span className="vh">— change branch</span>
+        <span className="vh">, change branch</span>
       </button>
 
       <ul className={`bpick__list ${open ? 'is-open' : ''}`} id={listId} hidden={!open}>

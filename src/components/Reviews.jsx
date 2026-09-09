@@ -66,7 +66,7 @@ export default function Reviews() {
 
       <div className="container">
         <p className="rev__note">
-          Placeholder copy for this concept — the quotes, names and ratings above are written,
+          Placeholder copy for this concept: the quotes, names and ratings above are written,
           not collected. A live build would pull verified reviews in their place.
         </p>
       </div>

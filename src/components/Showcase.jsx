@@ -94,7 +94,7 @@ export default function Showcase() {
             next craving.
           </h2>
           <p className="lede">
-            Everything is built to order in the shop — carved, grilled, stuffed with fries
+            Everything is built to order in the shop: carved, grilled, stuffed with fries
             and wrapped while you wait.
           </p>
         </Reveal>

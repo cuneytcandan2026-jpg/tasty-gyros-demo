@@ -30,7 +30,7 @@ export default function Story() {
 
           <p className="lede">
             A gyros is seasoned meat slow-cooked on a vertical rotisserie and carved to
-            order — served warm in soft pita with tomato, onion, crispy fries and tzatziki.
+            order, served warm in soft pita with tomato, onion, crispy fries and tzatziki.
           </p>
           <p className="story__body">
             That is the whole idea, and it is what we have been doing in London since 2021.

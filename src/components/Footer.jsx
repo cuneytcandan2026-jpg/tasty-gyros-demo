@@ -13,7 +13,7 @@ import {
 import './Footer.css';
 
 const SOCIALS = [
-  { href: INSTAGRAM_URL, icon: 'instagram', label: `Instagram — ${INSTAGRAM_HANDLE}` },
+  { href: INSTAGRAM_URL, icon: 'instagram', label: `Instagram (${INSTAGRAM_HANDLE})` },
   { href: FACEBOOK_URL, icon: 'facebook', label: 'Facebook' },
   { href: TIKTOK_URL, icon: 'tiktok', label: 'TikTok' },
 ];
@@ -69,7 +69,7 @@ export default function Footer() {
 
       <div className="container ftr__base">
         <p>
-          Concept website by <strong>Laara Digital</strong> — an unaffiliated design demo for
+          Concept website by <strong>Laara Digital</strong>, an unaffiliated design demo for
           Tasty Gyros, not the live business site.
         </p>
         <p>Tasty Gyros · Company Reg {COMPANY_REG}</p>

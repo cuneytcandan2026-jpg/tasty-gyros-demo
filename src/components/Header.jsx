@@ -43,7 +43,7 @@ export default function Header() {
 
         {/* Centred and hung below the bar, so the mark breaks the rule rather
             than sitting inside it. */}
-        <a href="#top" className="hdr__brand" aria-label="Tasty Gyros — back to top">
+        <a href="#top" className="hdr__brand" aria-label="Tasty Gyros, back to top">
           <Logo variant="emblem" />
         </a>
 
@@ -59,7 +59,7 @@ export default function Header() {
             rel="noopener noreferrer"
           >
             Order now
-            <span className="vh">— {branch.name}, opens {branch.orderLabel} in a new tab</span>
+            <span className="vh"> for {branch.name}, opens {branch.orderLabel} in a new tab</span>
           </a>
         </div>
 

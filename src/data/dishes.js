@@ -57,7 +57,7 @@ export const feature = {
   id: 'chicken-gyros-box',
   name: 'Chicken Gyros Box',
   blurb:
-    'Chicken gyros served with pita, salad, fries and tzatziki — laid out in the box rather than rolled up. The one to get when you want to see everything you ordered.',
+    'Chicken gyros served with pita, salad, fries and tzatziki, laid out in the box rather than rolled up. The one to get when you want to see everything you ordered.',
   kcal: '909 kcal (regular)',
   image: 'feature-gyros-box',
   alt: 'Chicken gyros box with carved chicken, golden fries, Greek salad and a pot of tzatziki in a branded tray.',

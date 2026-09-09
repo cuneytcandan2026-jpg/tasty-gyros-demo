@@ -142,7 +142,7 @@ export default function Gallery() {
             <Icon name="external" size={15} />
           </a>
           <p className="gallery__note">
-            Our own photography, laid out as posts — not a live embed. The like, comment and
+            Our own photography, laid out as posts, not a live embed. The like, comment and
             share figures are placeholders for this concept.
           </p>
         </div>

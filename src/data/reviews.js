@@ -32,7 +32,7 @@ export const reviews = [
     tone: 'gold',
     rating: 5,
     quote:
-      'The halloumi wrap is criminally good — squeaky, golden and packed properly.',
+      'The halloumi wrap is criminally good: squeaky, golden and packed properly.',
     author: 'Sample · R. P.',
   },
   {
