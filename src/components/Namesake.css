@@ -1,0 +1,132 @@
+/* ==========================================================================
+   Namesake — the shopfront fascia.
+
+   Sits on the deepest ground in the palette so the lemon signage reads as lit.
+   Everything here is one object: meander, board, name, sticker.
+   ========================================================================== */
+.namesake {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--blue-ink);
+}
+
+/* Light pooling behind the sign rather than a flat ground — same trick as the
+   hero, aimed at the middle so the lockup sits in the brightest part. */
+.namesake__wash {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(56% 68% at 50% 34%, rgba(255, 212, 59, 0.17), transparent 68%),
+    radial-gradient(44% 62% at 88% 96%, rgba(7, 85, 217, 0.45), transparent 72%);
+}
+
+.namesake__key {
+  color: rgba(255, 212, 59, 0.38);
+}
+
+.namesake__inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(1rem, 2.5vw, 1.6rem);
+  padding-block: clamp(2.75rem, 6vw, 5rem);
+  text-align: center;
+}
+
+/* --- The lockup ---------------------------------------------------------- */
+.namesake__sign {
+  margin: 0;
+  color: var(--lemon);
+  font-size: clamp(4.1rem, 20vw, 14rem);
+  line-height: 0.76;
+  letter-spacing: 0.012em;
+}
+
+/* The block carries its own entrance letter by letter, so the wrapper's own
+   reveal transition is cancelled — otherwise the two fight each other. */
+.namesake__sign.reveal {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+.namesake__line {
+  display: block;
+}
+
+.namesake__ltr {
+  display: inline-block;
+  /* The house offset shadow, expressed in em so it tracks the display size
+     instead of vanishing at 14rem. */
+  text-shadow: 0.03em 0.034em 0 var(--tomato-ink);
+}
+
+/* --- Supporting line ----------------------------------------------------- */
+.namesake__sub {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--step--1);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--on-blue-soft);
+}
+
+/* --- Pronunciation sticker ----------------------------------------------- */
+.namesake__sticker {
+  --burst-size: clamp(92px, 12vw, 130px);
+}
+
+@media (min-width: 761px) {
+  .namesake__sticker {
+    position: absolute;
+    right: clamp(0px, 2vw, 40px);
+    bottom: clamp(8px, 6vw, 56px);
+  }
+}
+
+/* Below the fascia's comfortable width the sticker stops being a corner mark
+   and joins the stack, so it can never land on top of the name. */
+@media (max-width: 760px) {
+  .namesake__sticker {
+    margin-top: var(--sp-1);
+  }
+}
+
+/* --- Mounting the letters ------------------------------------------------
+   Each letter drops in from slightly above with a little rotation, as if it
+   were being fixed to the board one at a time.                              */
+@keyframes sign-mount {
+  from {
+    opacity: 0;
+    transform: translateY(-0.18em) rotate(-7deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Hidden only while the block is still waiting its turn. `useReveal` has a
+     no-observer path and a timed safety net, so this cannot strand the name. */
+  .namesake__sign:not(.is-visible) .namesake__ltr {
+    opacity: 0;
+  }
+
+  .namesake__sign.is-visible .namesake__ltr {
+    animation: sign-mount 0.56s var(--ease-spring) backwards;
+    animation-delay: calc(var(--i) * 52ms);
+  }
+}
+
+/* --- Pointer play --------------------------------------------------------
+   Individual letters lift under the cursor. Purely additive: nothing is
+   communicated by it, and it is off for touch and for reduced motion.       */
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .namesake__ltr {
+    transition: transform 0.24s var(--ease-spring), color 0.24s var(--ease);
+  }
+  .namesake__ltr:hover {
+    transform: translateY(-0.05em) rotate(-3deg);
+    color: var(--warm);
+  }
+}

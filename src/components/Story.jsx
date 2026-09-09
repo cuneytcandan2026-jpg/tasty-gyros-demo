@@ -33,7 +33,8 @@ export default function Story() {
             order, served warm in soft pita with tomato, onion, crispy fries and tzatziki.
           </p>
           <p className="story__body">
-            That is the whole idea, and it is what we have been doing in London since 2021.
+            That is the whole idea, and it is what Tasty Gyros has been doing in London since
+            2021.
             Two kitchens, one menu, and every wrap built when you ask for it.
           </p>
 

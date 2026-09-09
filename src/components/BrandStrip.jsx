@@ -2,15 +2,22 @@ import { useEffect, useState } from 'react';
 import Icon from './Icon.jsx';
 import './BrandStrip.css';
 
-const WORDS = ['Gyros', 'Golden fries', 'Tzatziki', 'Greek street food'];
+/* The name leads the loop and is the only coloured word in it, so each pass
+   reads as the brand followed by what it makes — not as four ingredients. */
+const WORDS = [
+  { text: 'Tasty Gyros', brand: true },
+  { text: 'Golden fries' },
+  { text: 'Tzatziki' },
+  { text: 'Greek street food' },
+];
 
 /** One pass of the phrase. Only the first pass is exposed to screen readers. */
 function Run({ hidden }) {
   return (
     <span className="strip__run" aria-hidden={hidden || undefined}>
       {WORDS.map((w) => (
-        <span className="strip__word" key={w}>
-          {w}
+        <span className={`strip__word ${w.brand ? 'is-brand' : ''}`.trim()} key={w.text}>
+          {w.text}
           <span className="strip__dot" aria-hidden="true">
             •
           </span>

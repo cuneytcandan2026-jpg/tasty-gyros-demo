@@ -17,6 +17,7 @@ export default function Hero() {
           <p className="kicker hero__kicker">Enfield Town · Notting Hill Gate</p>
 
           <h1 id="hero-title" className="hero__title">
+            <span className="hero__brand">Tasty Gyros</span>
             <span className="hero__line">Big</span>
             <span className="hero__line">Greek</span>
             <span className="hero__line hero__line--accent">Energy.</span>

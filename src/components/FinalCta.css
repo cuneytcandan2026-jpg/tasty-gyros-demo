@@ -29,6 +29,16 @@
   margin-top: var(--sp-2);
 }
 
+/* Signing off with the name rather than trailing away on a button. */
+.final__sign {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--d-4);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--blue-deep);
+}
+
 .final__doodle {
   position: absolute;
   color: var(--tomato-ink);

@@ -5,6 +5,7 @@ import BrandStrip from './components/BrandStrip.jsx';
 import Showcase from './components/Showcase.jsx';
 import Feature from './components/Feature.jsx';
 import Story from './components/Story.jsx';
+import Namesake from './components/Namesake.jsx';
 import Gallery from './components/Gallery.jsx';
 import Reviews from './components/Reviews.jsx';
 import Locations from './components/Locations.jsx';
@@ -26,6 +27,7 @@ export default function App() {
         <Showcase />
         <Feature />
         <Story />
+        <Namesake />
         <Gallery />
         <Reviews />
         <Locations />

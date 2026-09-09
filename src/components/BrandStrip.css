@@ -38,6 +38,10 @@
   white-space: nowrap;
 }
 
+.strip__word.is-brand {
+  color: var(--tomato-ink);
+}
+
 .strip__dot {
   font-size: 0.7em;
   color: var(--tomato-ink);

@@ -26,6 +26,8 @@ export default function FinalCta() {
             <Icon name="bag" size={19} />
             Order now
           </button>
+
+          <p className="final__sign">Tasty Gyros · Enfield Town &amp; Notting Hill Gate</p>
         </Reveal>
       </div>
     </section>
